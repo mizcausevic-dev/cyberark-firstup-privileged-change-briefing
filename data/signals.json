@@ -1,0 +1,30 @@
+{
+  "name": "CyberArk FirstUp Privileged Change Briefing",
+  "slug": "cyberark-firstup-privileged-change-briefing",
+  "platforms": [
+    "CyberArk",
+    "FirstUp"
+  ],
+  "topics": [
+    "cyberark",
+    "firstup",
+    "privileged-access",
+    "workforce-comms",
+    "change-risk",
+    "kinetic-gain"
+  ],
+  "signals": [
+    {
+      "lane": "exposure",
+      "score": 72
+    },
+    {
+      "lane": "savings",
+      "score": 61
+    },
+    {
+      "lane": "investment",
+      "score": 66
+    }
+  ]
+}

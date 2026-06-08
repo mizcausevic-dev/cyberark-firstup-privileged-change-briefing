@@ -6,12 +6,19 @@ Privileged change briefing for CyberArk access risk and FirstUp workforce commun
 
 ## What this ships
 
-This repo is a static Kinetic Gain evidence surface, not a placeholder page. It packages CyberArk, FirstUp signals into a board-readable operating view:
+This repo is a static Kinetic Gain evidence surface, not a placeholder page. It packages CyberArk, FirstUp signals into a board-readable operating view with decision workflow, board-pack copy, related links, and validation checks:
 
 - Exposure: where workflow, platform, or communications risk can become visible.
 - Savings: where duplicate effort, drift, or manual coordination can be reduced.
 - Investment: which next action deserves funding, ownership, or escalation.
 - Story: how the evidence should be explained to executives or investors.
+
+## Operating workflow
+
+1. Ingest current platform signals, ownership notes, exception records, and timing windows.
+2. Score exposure, savings, and investment pressure separately.
+3. Route every lane to one accountable owner, one audience, and one next action.
+4. Brief the decision in language that can survive board, investor, or diligence review.
 
 ## Live surface
 

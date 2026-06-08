@@ -21,7 +21,7 @@ for (const signal of requiredSignals) {
   }
 }
 
-for (const required of ['Decision evidence', 'Related surfaces', 'data-filter', 'Footer links', 'Where are we exposed']) {
+for (const required of ['Decision evidence', 'Operating workflow', 'Board pack builder', 'Implementation proof', 'How to use it', 'Related surfaces', 'data-filter', 'Footer links', 'Public-demo boundary']) {
   if (!page.includes(required)) {
     throw new Error('Missing page capability: ' + required);
   }

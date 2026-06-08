@@ -61,6 +61,19 @@
     th,td{text-align:left;padding:16px;border-bottom:1px solid rgba(255,255,255,.07);vertical-align:top}
     th{color:var(--soft);font:800 11px/1 ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.14em;text-transform:uppercase;background:rgba(255,255,255,.025)}
     td small{display:block;margin-top:6px;color:var(--soft);line-height:1.4}td b{margin-left:8px}.row-index{color:var(--cyan);font-family:ui-monospace,SFMono-Regular,Consolas,monospace}
+    .workflow-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+    .step,.pack-card,.note-card{border:1px solid rgba(255,255,255,.1);border-radius:22px;background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.02));padding:18px}
+    .step span,.pack-card span,.note-card span{display:block;color:var(--cyan);font:800 11px/1 ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.14em;text-transform:uppercase}
+    .step p,.pack-card p,.note-card p{margin:14px 0 0;color:var(--muted)}
+    .pack-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+    .pack-card h3{font-size:24px;line-height:1.08;letter-spacing:-.035em;margin:16px 0 0}
+    .note-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+    .callout{border:1px solid rgba(87,242,177,.24);border-radius:22px;background:linear-gradient(135deg,rgba(87,242,177,.08),rgba(37,232,255,.045));padding:20px;color:var(--muted)}
+    .callout strong{display:block;color:var(--ink);font-size:18px;margin-bottom:8px}
+    details{border:1px solid rgba(255,255,255,.1);border-radius:18px;background:rgba(255,255,255,.025);padding:14px 16px}
+    details+details{margin-top:10px}
+    summary{cursor:pointer;color:var(--ink);font-weight:850}
+    details p{color:var(--muted);margin:10px 0 0}
     .related-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
     .related-card{display:block;min-height:118px;border:1px solid rgba(255,255,255,.1);border-radius:20px;background:rgba(255,255,255,.035);padding:16px;text-decoration:none}
     .related-card span{display:block;color:var(--cyan);font:800 11px/1 ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.14em;text-transform:uppercase}
@@ -68,7 +81,7 @@
     footer{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:24px 4px 0;color:var(--soft);font-size:14px}
     footer nav{display:flex;gap:14px;flex-wrap:wrap}
     footer a{color:var(--cyan);text-decoration:none}
-    @media(max-width:900px){.hero-grid,.signal-grid,.related-grid{grid-template-columns:1fr}.section-head{align-items:flex-start;flex-direction:column}.nav{display:none}.metric-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:900px){.hero-grid,.signal-grid,.related-grid,.workflow-grid,.pack-grid,.note-grid{grid-template-columns:1fr}.section-head{align-items:flex-start;flex-direction:column}.nav{display:none}.metric-grid{grid-template-columns:1fr 1fr}}
     @media(max-width:520px){.page{width:min(100% - 20px,430px);padding-top:16px}.topbar{padding:10px}.brand{font-size:18px}.brand-mark{transform:scale(.82);transform-origin:left center}.hero{border-radius:24px}.hero-grid,.section{padding:20px}h1{font-size:44px;letter-spacing:-.06em}.lede{font-size:16px}.hero-actions .action{width:100%}.metric-grid{grid-template-columns:1fr}.section{border-radius:22px}.signal-card{min-height:0}.filterbar button{flex:1 1 auto}.table-wrap{border-radius:16px}footer{padding-bottom:24px}}
   </style>
 </head>
@@ -91,7 +104,7 @@
           </div>
         </div>
         <aside class="decision-panel" aria-label="Decision summary">
-          <div class="question"><span>Board question</span><p>Where are we exposed, where can we save money, where should we invest, and what story do we tell with defensible evidence?</p></div>
+          <div class="question"><span>Board question</span><p>Which customer or workforce communication path will fail under incident pressure unless ownership is clarified?</p></div>
           <div class="metric-grid">
             <div class="metric"><b>3</b><span>Evidence lanes</span></div>
             <div class="metric"><b>50</b><span>Decision confidence</span></div>
@@ -107,7 +120,14 @@
         <div><h2>Signal lanes</h2><p>Each lane keeps the platform signal connected to owner action, risk pressure, savings logic, and board-readable evidence.</p></div>
         <div class="chip-grid"><span class="chip">CyberArk</span><span class="chip">FirstUp</span><span class="chip">Executive intelligence</span><span class="chip">CyberArk + FirstUp</span></div>
       </div>
-      <div class="signal-grid"><article class="signal-card" data-type="Risk"><div><span>01</span><b>Risk</b></div><h3>exposure</h3><p>Turn exposure into a risk packet with an owner, proof source, and board-ready next action.</p><meter min="0" max="100" value="72"></meter></article><article class="signal-card" data-type="Evidence"><div><span>02</span><b>Evidence</b></div><h3>savings</h3><p>Turn savings into a evidence packet with an owner, proof source, and board-ready next action.</p><meter min="0" max="100" value="61"></meter></article><article class="signal-card" data-type="Evidence"><div><span>03</span><b>Evidence</b></div><h3>investment</h3><p>Turn investment into a evidence packet with an owner, proof source, and board-ready next action.</p><meter min="0" max="100" value="66"></meter></article></div>
+      <div class="signal-grid"><article class="signal-card" data-type="Risk"><div><span>01</span><b>Risk</b></div><h3>exposure</h3><p>Exposure is treated as a risk lane owned by the Workforce communications owner. It uses message delivery traces, acknowledgment records, policy attestations, and audience segments so the decision is not just a status update; the exposure is already high enough to warrant executive attention, with roughly $0K of avoidable drag modeled for prioritization.</p><meter min="0" max="100" value="72"></meter></article><article class="signal-card" data-type="Evidence"><div><span>02</span><b>Evidence</b></div><h3>savings</h3><p>Savings is treated as a evidence lane owned by the Workforce communications owner. It uses message delivery traces, acknowledgment records, policy attestations, and audience segments so the decision is not just a status update; the exposure is still manageable if the owner acts before the next review, with roughly $0K of avoidable drag modeled for prioritization.</p><meter min="0" max="100" value="61"></meter></article><article class="signal-card" data-type="Evidence"><div><span>03</span><b>Evidence</b></div><h3>investment</h3><p>Investment is treated as a evidence lane owned by the Workforce communications owner. It uses message delivery traces, acknowledgment records, policy attestations, and audience segments so the decision is not just a status update; the exposure is still manageable if the owner acts before the next review, with roughly $0K of avoidable drag modeled for prioritization.</p><meter min="0" max="100" value="66"></meter></article></div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div><h2>Operating workflow</h2><p>The page now shows the actual operating loop: source signals, score the pressure, route the owner, and brief the decision.</p></div>
+      </div>
+      <div class="workflow-grid"><article class="step"><span>01 / Ingest</span><p>Pull the current CyberArk + FirstUp signals, ownership notes, exception records, and timing windows into one evidence view.</p></article><article class="step"><span>02 / Score</span><p>Convert exposure, savings, and investment pressure into a comparable decision score instead of another unweighted backlog.</p></article><article class="step"><span>03 / Route</span><p>Attach each lane to one accountable owner, one audience, and one next action so remediation does not disappear into generic status reporting.</p></article><article class="step"><span>04 / Brief</span><p>Package the conclusion as a board-ready narrative with the proof sources required to defend the recommendation.</p></article></div>
     </section>
 
     <section id="evidence" class="section">
@@ -124,9 +144,33 @@
       <div class="table-wrap">
         <table>
           <thead><tr><th></th><th>Lane</th><th>Type</th><th>Score</th><th>Next action</th></tr></thead>
-          <tbody><tr data-type="Risk"><td><span class="row-index">01</span></td><td><strong>exposure</strong><small>Evidence lane for risk decisions.</small></td><td>Risk</td><td><meter min="0" max="100" value="72"></meter><b>72</b></td><td>Turn exposure into a risk packet with an owner, proof source, and board-ready next action.</td></tr><tr data-type="Evidence"><td><span class="row-index">02</span></td><td><strong>savings</strong><small>Evidence lane for evidence decisions.</small></td><td>Evidence</td><td><meter min="0" max="100" value="61"></meter><b>61</b></td><td>Turn savings into a evidence packet with an owner, proof source, and board-ready next action.</td></tr><tr data-type="Evidence"><td><span class="row-index">03</span></td><td><strong>investment</strong><small>Evidence lane for evidence decisions.</small></td><td>Evidence</td><td><meter min="0" max="100" value="66"></meter><b>66</b></td><td>Turn investment into a evidence packet with an owner, proof source, and board-ready next action.</td></tr></tbody>
+          <tbody><tr data-type="Risk"><td><span class="row-index">01</span></td><td><strong>exposure</strong><small>Exposure is treated as a risk lane owned by the Workforce communications owner. It uses message delivery traces, acknowledgment records, policy attestations, and audience segments so the decision is not just a status update; the exposure is already high enough to warrant executive attention, with roughly $0K of avoidable drag modeled for prioritization.</small></td><td>Risk</td><td><meter min="0" max="100" value="72"></meter><b>72</b></td><td>Assign the Workforce communications owner, attach message delivery traces, acknowledgment records, policy attestations, and audience segments, and convert exposure into a risk decision packet with a dated next action.</td></tr><tr data-type="Evidence"><td><span class="row-index">02</span></td><td><strong>savings</strong><small>Savings is treated as a evidence lane owned by the Workforce communications owner. It uses message delivery traces, acknowledgment records, policy attestations, and audience segments so the decision is not just a status update; the exposure is still manageable if the owner acts before the next review, with roughly $0K of avoidable drag modeled for prioritization.</small></td><td>Evidence</td><td><meter min="0" max="100" value="61"></meter><b>61</b></td><td>Assign the Workforce communications owner, attach message delivery traces, acknowledgment records, policy attestations, and audience segments, and convert savings into a evidence decision packet with a dated next action.</td></tr><tr data-type="Evidence"><td><span class="row-index">03</span></td><td><strong>investment</strong><small>Investment is treated as a evidence lane owned by the Workforce communications owner. It uses message delivery traces, acknowledgment records, policy attestations, and audience segments so the decision is not just a status update; the exposure is still manageable if the owner acts before the next review, with roughly $0K of avoidable drag modeled for prioritization.</small></td><td>Evidence</td><td><meter min="0" max="100" value="66"></meter><b>66</b></td><td>Assign the Workforce communications owner, attach message delivery traces, acknowledgment records, policy attestations, and audience segments, and convert investment into a evidence decision packet with a dated next action.</td></tr></tbody>
         </table>
       </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div><h2>Board pack builder</h2><p>Use these reads to compose the executive packet without turning the page into a vague product brochure.</p></div>
+      </div>
+      <div class="pack-grid"><article class="pack-card"><span>Exposure read</span><h3>Exposure</h3><p>Exposure is treated as a risk lane owned by the Workforce communications owner. It uses message delivery traces, acknowledgment records, policy attestations, and audience segments so the decision is not just a status update; the exposure is already high enough to warrant executive attention, with roughly $0K of avoidable drag modeled for prioritization.</p></article><article class="pack-card"><span>Savings read</span><h3>Exposure</h3><p>The strongest savings lane is exposure. Treat it as an avoidable-drag candidate before it becomes another recurring manual review.</p></article><article class="pack-card"><span>Investment read</span><h3>Exposure</h3><p>The clearest investment lane is exposure. It deserves funding only if the attached evidence and owner path stay current.</p></article><article class="pack-card"><span>Narrative read</span><h3>CyberArk FirstUp Privileged Change Briefing</h3><p>CyberArk FirstUp Privileged Change Briefing turns platform complexity into an evidence-backed decision story leadership can reuse.</p></article></div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div><h2>Implementation proof</h2><p>The surface is still static by design, but it now names the expected inputs, scoring rules, outputs, and validation path.</p></div>
+      </div>
+      <div class="note-grid"><article class="note-card"><span>Inputs</span><p>message delivery traces, acknowledgment records, policy attestations, and audience segments, plus owner notes and board-audience context for CyberArk, FirstUp.</p></article><article class="note-card"><span>Rules</span><p>Scores are synthetic but deterministic: exposure, savings, and investment pressure are kept separate before the final confidence read.</p></article><article class="note-card"><span>Outputs</span><p>A public evidence surface, a repo-level validation script, related-surface links, robots.txt, sitemap.xml, and a README that explains the decision use case.</p></article></div>
+      <div class="callout" style="margin-top:14px"><strong>Public-demo boundary</strong>This is a portfolio-safe evidence model. It does not expose production credentials, private customer records, internal incidents, or live vendor data.</div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div><h2>How to use it</h2><p>These answers make the page easier to scan for buyers, reviewers, recruiters, and crawlers.</p></div>
+      </div>
+      <details open><summary>What decision does this page support?</summary><p>Which customer or workforce communication path will fail under incident pressure unless ownership is clarified?</p></details>
+      <details><summary>What makes it different from a normal dashboard?</summary><p>It keeps every lane tied to ownership, board audience, evidence source, and next action instead of showing disconnected metrics.</p></details>
+      <details><summary>Where does it connect in the Kinetic Gain estate?</summary><p>Use the related-surface links, platform links, GitHub repo, and portfolio atlas to move through the evidence chain.</p></details>
     </section>
 
     <section id="related" class="section">

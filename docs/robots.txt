@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://mizcausevic-dev.github.io/cyberark-firstup-privileged-change-briefing/sitemap.xml
